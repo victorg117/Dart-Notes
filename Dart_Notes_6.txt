@@ -1,0 +1,63 @@
+Dart Built in Types:
+
+    What are built-in types?
+        - Built-ins are ones that are included by default
+        - The default types in Dart_SDK core folder
+        - Cmd + clicking a type will show you the implementation
+        - All of the built-in types can be found in the core folder
+
+
+    What built-in types does Dart have?
+        - Numbers (num, int, double)
+        - Strings (String)
+        - Booleans (bool)
+        - Lists (List)
+        - Sets (Set)
+        - Maps (Map)
+        - Runes (Runes)
+        - The null value (Null)
+        - Object
+        - Future & Stream
+        - Iterable
+        - Never
+        - dynamic
+        - void
+        
+
+    Numbers -->     
+    - int and double are subclasses of the num class --> methods from num class are completely accesible to both int and double types
+    - int and double are special enough to reimplement some of num's existing methods, by bringing some abstraction and extra functionality to the base class
+    - the num type can host both int and double values, the operators and methods inside will work at the same time on both int and double types
+
+    It is technically possible to perform operations between ints and doubles because they are both nums
+        - Why use int or double if num can handle all nums?
+            - There are more built-in functions available for specific classes
+                - If num a = 5 -- a.isOdd would not be able to evaluate True or False (method doesn't exist)
+                - If int a = 5 -- a.isOdd would evaluate to True
+        - However, if your variable needs to change between int and double values, use num class
+
+    Dividing int / int values will return a double value
+        - To get true integer division, use the truncated divisor operator '~/'
+            - 3 / 2 --> 1.5
+            - 3 ~/ 2 --> 1
+    
+    Div by 0 will return 'Infinity', since doubles accept infinity
+        - Doing this using truncated division will throw an IntegerDivisionByZeroException
+    
+
+    Strings -->
+    
+    If using single quotes for a string, which contains a single quote:
+        - Use \' for the single quote
+
+    String interpolation
+        - Using $var in your string calls toString() on the variable, and then concatenates that with the prefix and suffix Strings
+        - If interpolating and some method needs to be called on the interpolated value, use ${var.method()}
+
+
+
+    
+
+
+
+    
