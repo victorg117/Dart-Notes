@@ -1,0 +1,49 @@
+Recap -->
+
+    Dart is an OOP Language
+        - Mostly everything in Dart is a class, and objects are instances of these classes
+    
+    Everything you place inside a Dart's variable is an object -> an instance of a class
+
+    Dart is strongly typed
+        - Everything has a type, but type annotations are optional, since types can be inferred
+        - Using the 'var' keyword allows Dart to infer the type
+        - Using the 'dynamic' keyword sets the type to dynamic, which can change over usage 
+            --> i.e. dynamic a = 1 can be reassigned to a = 'hello world' (?)
+        - var.runtimeType allows you check which type is being assigned to the var at runtime
+
+    Dart is a sound-typed system --> it can never evaluate into an unknown state
+
+    Dart is an ecosystem based on packages
+        - Dart packages can depend on one another
+        - Dart packages use libraries to share code with one another   
+        - Libraries are stored inside the lib folder
+        - Files outside the lib folder are not shared with other packages
+        
+
+Dart Variables:
+
+    Avoid using Dart reserved keywords as identifiers
+        - However, under some circumstances, the following keywords may be used as identifiers:
+            e.g. on --> used in try catch blocks. outside of this context, could be used as an identifier
+            
+    Four main types of Variables
+        - Top-level --> global var 
+        - Static
+        - Instance --> sometimes called fields, or properties (of a class)
+        - Local
+
+    String car = 'BMW'; 
+
+    String car; --> NULL
+        - Variables if left unassigned will be given a default value of "null"
+        - However this particular assignment is not legal, as the variable was not made nullable
+        - Correct assignment would be String?car;
+
+    Non nullable variables must be initialized before being accessed or used
+
+    If initializing a non-nullable variable, if a value will be assigned at some point, use the keyword 'late' on initialization
+        - late int nonNullableVar; --> won't throw error if at some point in the program
+                                   --> nonNullableVar = 5;
+
+    

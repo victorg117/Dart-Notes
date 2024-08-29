@@ -1,0 +1,35 @@
+Dart Notes
+
+What is Dart?
+
+    - The language that Flutter is written in
+    - Precision - language has to be as optimized as possible
+    - Speed - language has to be minimalist and fast to run
+    - Tough - language has to be scalable, maintainable and readable
+    - Modifiable - language has to use the benefit of hot-reload
+    - Popular framework - language is the foundation of Flutter
+
+Particularities of Dart
+
+Dart is TYPE SAFE — - The only operations that can be performed on the data in the language, are those allowed by the type of the data - If the data is of type ‘X’ and the operation is of type ‘F’ - F(X) is not allowed - Type checking (Sound type system) \*\*\* - Static type checking @ compile time - Runtime checking @ run time - ‘dynamic’ type (ignoring static checking) - i.e. using ‘any’ type in TS - Runtime exceptions will still be thrown for type errors - Type inference - Types are mandatory, but don’t have to be annotated - Dart can infer types (use ‘var’ keyword) - If type cannot be inferred, the var is coerced to null - Sound Null Safety - Variables cannot contain null, unless specified - Data can either be nullable or non-nullable - If a var is non-nullable, it will always be non-nullable
+Dart compiler —
+On ARM32 / ARM64 / X86_64 - Dart uses JIT (Just In Time Compiler) - and AOT (Ahead Of Time Compiler)
+
+    On JS
+    	- Dart uses dartdevc (Dart Development Compiler)
+    		- and dart2js (Dart to JavaScript)
+
+When developing, at least 2 phases: 1. Development - Easy to test - Easy to debug - Live metrics support - Faster coding cycles - Incremental recompilation
+
+- Compile with JIT for this dev because (compiles what it needs, when it needs it)
+  -Doesn’t transform Dart code into Machine code, rather it transforms to an Intermediary language (for faster cycles)
+
+      2. Production
+      	- App should start fast
+      	- App should run fast
+      	- App doesn’t need extra debugging features
+      	- App doesn’t need hot-reloading
+      	- App should be compiled into machine code
+
+- Compile with AOT, compiles the entire code ahead of time, does this before each build
+- For prod, user does not need fast testing, debugging, nor hot-reload. The only consideration is that the app starts and runs as quickly as possible.

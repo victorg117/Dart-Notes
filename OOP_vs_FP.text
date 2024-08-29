@@ -1,0 +1,54 @@
+    Functions in Programming --> 
+        - Functions can be named anything
+        - An infinite number of parameters can be passed in
+        - They can return almost anything    
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    FP Requirements -->
+        - Functions only
+        - No side effects
+        - Fixed control flow 
+
+    Problem: Write a function that returns the sum of two numbers squared
+        Approach #1 (Functional) -->
+            def squared_sum(x,y):
+                return  (x+y)^2
+
+        Approach #2 (Imperative) --> 
+            def squared_sum(x,y):
+                sum = x + y
+                squared = sum^2
+                return squared
+
+    Difference is that the less-functional approach makes use of intermediary variables
+        - The function, when evaluating a given set of numbers, produces events outside of its own body, and affects something in a different location 
+        - These are 'side-effects'
+        - The vars 'sum' and 'squared' have to be stored in the computer's memory
+        - As systems scale, it becomes increasingly difficult to debug problems
+        
+    What is Functional Programming? 
+        - FP is a a method of problem solving
+        - Pure functions (don't include side-effects)
+        - Strict control flow --> directly mapping input to output
+        - Good for projects that do not scale out
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------        
+
+    Problem: Create a farm game with a bunch of animals
+        Approach #1:
+            - Write specific code for each animal from manually
+            - Continuously repeat the process for each animal you'd like to add
+            - If there is some bug in the implementation, you must manually edit each animal's code
+
+        Approach #2:
+            - Create some kind of 'blueprint' --> *class* for what an animal is
+            - Apply that to every animal you create 
+            - Define once what an animal is, and then apply that set of rules to each animal automatically
+
+    Classes --> 
+        - Contain attributes and methods
+        - Produce 'objects'
+        - One can have multiple entitites that inherit from the same class, holding different data
+         
+    

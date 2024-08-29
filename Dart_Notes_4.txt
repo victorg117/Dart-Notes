@@ -1,0 +1,33 @@
+Dart Notes 4 -- Null Safety
+
+Null Safety implies that null values cannot exist in places where they are not supposed to exist
+
+What is SOUND Null Safety?
+    - If the type system determines that something is not null, that thing can NEVER be null
+        - Smaller binaries, faster execution
+    
+    - Types in your code are non-nullable by default
+        - Variables cannot contain null, unless you say they can
+
+    - Runtime null errors turn into edit-time analysis errrors
+        - The faster you observe an issue, the faster you can solve it
+    
+    - Null will still exist in every Dart program
+        - It simply won't exist in places it shouldn'take
+
+    - Everything in DART is an object
+        - These objects are instances of different classes
+        - Types are also classes from which objects can be instantiated from
+
+    - Before Null Safety --> Null was a subclass of every other class
+    
+    - Now, null is not a subclass of any class --> thus the only type that permitts a null value is type null
+
+    - Postfix var assignments with ? allow null values:
+        String?
+        int?
+        double?
+        --> Can all be null
+
+
+

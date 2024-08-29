@@ -1,0 +1,86 @@
+Dart Notes 2
+
+Dart recommended VSCode Extensions - Dart Extension
+official Dart Extension integrating Dart SDK
+
+    - Dart Data Class Generator
+        creates dart data classes easily
+
+    - Pubspec Assist
+        easily add or update dependencies
+
+    - Bracket Pair Colorizer 2
+        for colorizing matching brackets
+
+    - Better comments
+        improves comments by annotating
+
+    - Vscode Icons & Material Icon theme
+        icon pack for vscode editor
+
+How does a Dart project run? - Dart will execute the file located in the bin directory that has the same name as the project name - If no such file exists, you can append dart run with the path to the file you'd like to execute
+
+Packages:
+pub.dev - repository of dart packages - http: make http requests - json serializable: parse json to a class - hive: lightweight nosql database
+
+Dart packages can depend on other dart packages
+
+Packages uploaded to pub.dev - Library
+Packages NOT uploaded - Application Package
+
+Package manager -- pub
+
+Packages can contain multiple libraries - The libraries are the only part of the package that is publicly available to everyone
+
+Testing:
+Inside of the /test directory - You can create unit tests to run prior to build
+
+Compiling:
+Packages goes through 2 main phases: 1. Development 2. Production
+
+    - During development: we want a fast, stable development workflow. Quick analyzer & reformatting tools, code optimization techniques, intuitive debugging tools.
+    Compiler - Just In Time (JIT)
+
+    - During production: focused on the user experience, fast startup time, useful, reliable, stable. Also good looks and interactivity.
+    Test in real-world scenarios.
+    Compiler - Ahead Of Time (AOT)
+
+    How does dart run a program?
+    Dart VM - a collection of components that aids native execution of dart code.
+    Provides an execution environment for dart code.
+        - Runtime system
+        - Dev components
+            - such as hot-reload and debugging
+        - JIT and AOT Compilation pipelines
+
+    VM can execute Dart Apps by either:
+        - Using JIT or AOT from source
+        - Using snapshots (jt, aot, kernel)
+
+Packages:
+name: should be all lowercase, with underscores separating words
+version: 3 numbers separated by dots. Can be omitted for local only packages
+description: self-explanatory, a short description of your package
+
+- All optional, should contain url's to each item
+  homepage:
+  repository:
+  issue_tracker:
+  documentation:
+
+  executables: to make a script publicly available, enter the name and entry file in executables
+
+  publish_to: default uses pub.dev (use 'none' to prevent the package from being published on pub.dev)
+
+  environment: package can specify an SDK constant (as the platform evolves over time)
+
+  dependencies: another package that your package depends on in order to work, specified in pubspec.yaml file
+
+Types of dependencies:
+Immediate dependencies - your package directly relies on this dependency
+
+    Transitive dependencies - your package depends on a dependency which relies on these dependencies
+
+    Regular dependency - your package will use these in the dev and prod phases
+
+    Dev dependency - only used during the development phase

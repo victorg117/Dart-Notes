@@ -1,0 +1,38 @@
+Dart Notes 3
+
+https://dart.dev/effective-dart -- Read over these docs
+
+Writing Fast, Maintainable & Consistent Dart Code:
+
+Code Objectives (Considerations): - How and When will I format my code? - How will I name my functions and variables? (Naming Conventions) - When will I refactor my code? - How will I structure my files and directories?
+
+Write minimalist and easy to understand code. - Whenever you write x many lines of code, glance over it and see if you can simplify it, or clean it up
+
+Do NOT rush your development workflow. - It is better to take the time to write good features, and review each one after completion. - Than to write multiple sloppy features, and try to refactor all of them
+
+Always test your code - For small apps, tests may be ommitted, since testing manually is possible. - For medium / large apps, you MUST write tests. - For every feature, write a test to ensure it works as expected
+
+Analysis_Options.yaml:
+Linting rules are specified in the analysis_options.yaml file which must be located in the root directory of your package - If no file is found, the analyzer will default to standard checks only
+
+    include:
+        provides the ability to apply the contents of another file from another package to the current analysis_options.yaml file
+        basically import linting options from another package
+
+    analyzer:
+        entry to customize the static analyzer
+
+    exclude:
+        entries to manually exclude files from static analysis
+
+    strong-mode:
+        enable stricter type checks (implicit-casts and implicit-dynamic)
+
+    errors:
+        ignore or set the severity of analyzer errors
+
+    enable-experiment:
+        enable experimental features
+
+    linter:
+        enable or disable specific rules or enable a list of them
