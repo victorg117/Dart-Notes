@@ -1,0 +1,134 @@
+Dart Classes II --> 
+
+    Dart is a true Object Oriented programming language
+        - Everything in Dart is an object
+        - Everything you create will be an object instantiated from a class
+        - Every class you create will inherit the 'object' class, by default
+            - class X (extends Object) {}
+
+    Inheritance --> 
+        - The sharing of behaviour between two classes
+        - If a bird class extends an animal class, any fields in the animal class will be present in the bird class.
+
+    'super' keyword --> 
+        - The 'super' class == the 'above' class
+        - 'this' exists for the current class --> 'super' is for the class right above it
+
+
+    Polymorphism --> Take a method with the same name from inside the base-class, and override it to get some specific behaviour
+
+    A dart class can only extend ONE class
+
+    e.g. Bird extends Animal, and Animal extends Object --> Bird extends Object as well
+
+    Whenever you want to tighten a type from a superclass, you can do so with the 'covariant' keyword
+
+    Inheritance checklist -->
+        - Inheritance concept is acheived by using the EXTENDS keyword
+        - class Duck extends Bird{} - Duck (derived, subclass), Bird (base, superclass)
+        - EXTENDS is used for SHARING BEHAVIOUR between SUPERCLASS & SUBCLASS 
+        - FIELDS & METHODS inside the SUPERCLASS are AVAILABLE in the SUBCLASS
+        - The SUPERCLASS can be accessed by using the SUPER keyword
+        - All Dart Classes EXTEND ONLY ONE CLASS (Object Class by default)
+        - The concept of POLYMORPHISM can be achieved in two ways:
+            --> @overriding methods 
+            --> @overloading methods (optional parameters)
+        - You can TIGHTEN a type using the 'covariant' keyword
+
+    Abstraction -->
+        1. Abstract classes
+        2. Abstract methods --> Abstract methods are undefined methods (void create())
+        3. Interfaces
+
+        An interface is a class that contains a list of fields and method headers
+            - Like a 'contract' you declare inside of a class
+
+        In Dart, there are no explicit interfaces. Use abstract classes to declare interfaces
+        The 'extends' keyword SHARES behaviour of the base to the derived class
+        The 'implements' keyword FORCES behaviour of interfaces to the derived class
+
+        A class that implements an interface must implement every field and method defined within the interface
+
+    example: 
+        abstract class UserRepositoryInterface {
+            late final List<int> usersList;
+            void create();
+            List<int> read();
+            void update();
+            void delete();
+        }
+        class UserRepository implements UserRepositoryInterface{}
+
+        Interfaces cannot be instantiated, since we can't instantiate abstract classes
+
+        EXTENDS --> Only 1 class
+        IMPLEMENTS --> 1 or more classes **
+            ** As long as all fields & methods inside the interface are overriden inside the derived class
+
+        Explicit Interface = Abstract Class
+        Implicit Interfaces = Every class --> 
+            Each class, by default, defines its own interface formed from its fields and methods
+        
+        Classes can extend a class and implement an interface at the same time
+
+    'external' keyword --> 
+        Denotes that the implementation of the method will be coded in another class    
+
+
+    Abstraction checklist -->
+        - ABSTRACT CLASSES, ABSTRACT METHODS, INTERFACES 
+        - 'Abstraction' is a concept that is achieved by using the 'implements' keyword
+        - class A implements B{} --> B is an INTERFACE that needs to be implemented in A
+        - In Dart, * every class * is an IMPLICIT INTERFACE, but every abstract class is an EXPLICIT INTERFACE
+        - When implementing an interface, you have to override every field and method from inside the interface 
+        - You can EXTEND only one class, but IMPLEMENT one or more interfaces
+
+    
+    Why does Dart only support single inheritance?
+        - Inheritance and Polymorphism used to create an issue called:
+            
+            the Deadly Diamond of Death (DDD) -->
+
+            class Performer - void perform()
+            class Guitarists extends Performer
+                - @override void perform()
+            class Drummer extends Performer
+                - @overrid void perform()
+
+            class Musician extends Guitarists, Drummer
+                --> Creates a deadlock, program doesn't know whether the Musician wants to perform as a Guitarist or Drummer
+
+        - This is why Dart only allows single inheritance --> a class can only extend one single class 
+
+        - So what happens when you want a Musician to be able to play either the Guitar or the Drums?
+            - Mixins
+
+    What are Mixins?
+        - A class with no constructor
+        - A class of which behaviour can be shared with other classes
+
+        How do we create a Mixin?
+            1. Create a simple class with no constructor (Remember a class with no constructor comes with a no-arg default constructor and can be instantiated)
+            2. Create an abstract class 
+            3. Declare it using the 'mixin' keyword
+
+    A mixin is like an abstract class
+        - They can't be instantiated, and they can contain both abstract and simple methods
+        - Mixins cannot be extended, they can be mixed-in using the 'with' keyword
+
+    The order in which classes are included with the 'with' keyword are important and can affect functionality
+
+    You can specify which classes can be mixed in using the 'on' keyword
+        - mixin Guitarist on Performer
+        - class Musician * extends Performer * with Guitarist, Drummer {}
+
+    Mixins checklist --> 
+        - Mixins are used to share behaviour between one or more classes
+        - In Dart, you can extend ONE single class, implement, or mixin one or more classes
+        - The order in which you write the mixins after the 'with' keyword matters
+        - A mixin cannot be instantiated, it cannot have a constructor
+        - A mixin that mixes in with some other class can use its methods and can even override some of them
+
+
+    Extension methods --> 
+        - A simple way to add functionality to libraries and classes

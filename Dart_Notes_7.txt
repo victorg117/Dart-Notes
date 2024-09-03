@@ -1,0 +1,58 @@
+Dart Classes --> 
+
+    Functions are objects (an instance of a class)
+
+    class A{} --> 
+        var a1 = A(); --> Default constructor method
+        var a2 = A(); 
+            var isIdentical = identical(a1, a2) --> False, both contain references to diff objects in memory
+
+    Inheritance * 
+
+    Default methods extend the Object class    
+        get hashCode 
+        get runtimeType --> Likely won't exist in your class, but can be accessed since they are included in Class object
+
+        They can also be overridden with keyword '@override' --> Write your own implementation or change default behaviour
+        'super' keyword --> Calls the method from the base object class
+
+    Instance variables (fields) --> 
+        ... in your methods, don't use var; better to explicitly state your variables
+        1. Any fields you create inside a class with have a default getter method 
+            Fields beginning in an underscore are private and cannot be called outside of where they are defined
+
+        2. Any non-final fields & late final fields will have a default setter method
+            Final fields cannot be set outside of the class, they can only be set in constructors, and on initialization
+
+        Final fields can only be set once 
+
+        Static fields exist and are accessable without instanciating the class
+
+    Generally, most variables inside of a class will be final, as it is not best practice to modify the fields inside of a class
+
+
+    Methods --> 
+
+        A function defined inside of a class
+
+        Constructors don't need to have a constructor body
+        Constructors don't have return type, they are instantiating an object of the same type as the className
+
+    Factory Constructors --> 
+
+    Constructors cannot return values, unless they are denoted with the 'factory' keyword
+        - Relaxes the rule of the default constructor by allowing you to access return values 
+        - factory Constructors do not have access to the this. keyword
+
+
+    Getters and Setters --> 
+        - Whenever you access a field from a class, you are calling a getter function on that field
+        - final int x; --> int get x => x; (implied)
+
+    Static methods --> 
+        - They exist without needing to instanciate any objects from a class
+        - They can interact with the static fields in your class, can't access 'this' keyword
+    
+
+    
+
