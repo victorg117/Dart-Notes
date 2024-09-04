@@ -1,0 +1,47 @@
+Dart... Generics, Generic Types, Generic Classes & Generic Methods --> 
+
+    Instead of implementing every function of the List class for each type of list (int, string, etc)
+        - Dart has a default value (E), which serves as the default
+        
+
+    Generic Type naming rules:
+        - Generic types are typically represented by a single capital letter
+        - <E> --> Element
+        - <T> --> Type
+        - <S> --> Source 
+        - <R> --> Return 
+        - <K, V>  --> Key, Value        
+
+    For readability, you are free to use any name to assist in making code easier to understand:
+        - abstract class Bloc<Event, State>
+
+    Types can be inferred, but it is always better to specify types, as it makes debugging easier
+
+    List can extend class num if you want to allow both ints and doubles (won't allow Strings or other non-num types)
+
+    Generic stack implementation:
+        class Stack<T> {
+            final List<T> _stack = [];              // Initialize a list
+
+            T get peek => _stack.last;              // Peeking at top element == what was the last element that was inserted
+            int get length => _stack.length;        // Get length 
+
+            bool get canPop() => _stack.isNotEmpty      // if the stack is not empty, a value can be popped
+
+            T pop() {
+                final T last = _stack.last;         // Store the last value in a temp var
+                _stack.removeLast();                // Remove the last value in the list
+                return last;                        // Return the value
+            }
+
+            void push(T value) = _stack.add(value); // To push a value to the list, add it to the stack
+        }
+
+        - Generic types can be used in classes and methods 
+        - Generics make everything more abstract, more universal, and more widely compatible
+
+        When should you use Generic Types:
+
+            - When you would like to implement a special data type or structure
+                - You won't have to reimplement the same class for each type
+            - When some portions of your code are repetitive (to abstract it)
