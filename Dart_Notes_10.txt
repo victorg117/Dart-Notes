@@ -1,0 +1,46 @@
+Synchronous and Asynchronous Workflows -->
+
+    Synchronous:
+        In order to move to the next task, you must first complete the current task
+
+    Asynchronous:
+        If the current task is pending some resource, you can move on to the next task(s)
+        If we know that a task may take an undetermined amount of time to complete, and we don't want to freeze the other tasks
+            - I.e. a network request to an API. File I/O, R/W.
+
+    Isolate:
+        The component in which Dart code runs
+        Dart is a single-thread language
+        All operations will be executed on a single (mutator) thread, sequentially
+    
+    Since Dart is single-threaded, is there a way to run programs using parallelization?
+        Yes, you can spawn additional isolates to do work in parallel to your main thread
+            - However it is quite resource intensive
+            - Every Dart isolate has it's own isolated memory (As you scale up, memory req becomes significant)
+                - Dart 2.15? Isolate Groups, multiple isolates can share memory 
+    
+    Microtask Queue:
+        Microtask events have a higher priority compared to future events
+
+
+    Synchronous Operation --> 
+        A task that needs to be solved before proceeding to solve the next one 
+        Dart uses synchronous operations a lot
+        
+    List vs Iterable -->
+    Iterable: 
+        An iterable is a much more abstract collection
+        It is constructed lazily --> when an element is accessed
+        It is traversed with the help of an iterator
+        It doesn't need to have a specified length
+        Accessing an element will regenerate all elements until the desired one is found
+
+    List:
+        Special non-lazy iterable --> constructed as soon as it's called
+        Has a defined size, and items are stored at a specific index
+        
+
+
+        Flutter Counter 1st
+        How does it deal with state management
+        

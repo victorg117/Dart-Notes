@@ -1,0 +1,40 @@
+Flutter architectural overview --> 
+
+    Layers (in a very basic, abstract sense):
+        Data Layer --> The layer that interacts directly with an API (REST API or device API) (or DB ?)
+
+        Domain Layer --> Converts raw data into domain-specific models that are consumed by the Bus logic layer
+
+        Business Logic Layer --> Manages the state (flutter_bloc)
+
+        Presentation Layer --> Renders UI components based on state
+
+    Depending on the chosen architecture, these components may have different names
+    In some architectures, they may be multiple layers to handle specific aspects of these responsibilities
+
+    Define your layers.
+        You can create different layers to handle the three main responsibilities
+        Defining layers is crucial
+        Try to keep them as simple as possible without compromising maintainability
+
+    Avoid mixed responsibilities
+        Not having a proper separation of concerns provokes errors that are difficult to track
+            Some functionality that would ideally be in a data layer component is located in a presentation layer component
+            Issue may seem like a presentation issue, even if it is a data layer issue 
+    
+    Be consistent
+        Follow patterns that your team has defined for the project
+        Each layer should have a chain of relation that prevents interactions between layers that are not directly related
+        Try to keep naming conventions consistent, can prevent confusion
+
+    Build with reusability in mind
+        In the case of the data layer, components can be used in many different domains for different purposes
+
+    Try not to over-engineer
+        Be sure not to over abstract, but similarly do not over-engineer tasks for risk of complexity and time waste
+    
+    When should I use packages?
+        Packaging everything may prove overkill, however it helps to keep components isolated
+        Additionally teammembers can work simiultaneously with more ease if components are isolated
+    
+    
